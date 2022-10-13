@@ -1,5 +1,12 @@
+import Login from './pageobject/login.cy.js';
+
+const email = 'pocemail@mail.ru';
+const psw = 'SS21%aaW';
 
 describe('Assert',()=>{
+
+    const login = new Login();
+
     it('Assert web tesr',()=>{
         
         cy.viewport(1920,1080);
@@ -10,13 +17,13 @@ describe('Assert',()=>{
 
         cy.title().should('eq','Beautiful Free Images & Pictures | Unsplash');
 
-        cy.contains('Log in').should('be.visible').click();
+        login.btnLogin().should('be.visible').click();
 
-        cy.get('input[id="user_email"]').type('pocemail@mail.ru').should('have.value','pocemail@mail.ru');
+        login.email().type(email).should('have.value',email);
 
-        cy.get('input[id="user_password"]').type('SS21%aaW').should('have.value','SS21%aaW');
+        login.password().type(psw).should('have.value',psw);
 
-        cy.get('input[type="submit"]').should('be.visible').click();
+        login.clickLoginBtn().should('be.visible').click();
 
         cy.get('.flash__container').should('be.visible');
 
