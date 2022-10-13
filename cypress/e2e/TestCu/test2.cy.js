@@ -4,17 +4,16 @@ describe('Cu found iphone',function(){
 
         cy.visit('https://www.mvideo.ru/');
 
-       cy.get('input[type="text"]').type('Iphone 12');
+       cy.get('input[type="text"]').type('Iphone 13');
 
        cy.get('.search-icon').click();
 
-       cy.contains('Смартфон Apple iPhone 12 64GB Black').click();
+       cy.contains('Смартфон Apple iPhone 13 Pro 128GB Sierra Blue').click();
+
+       cy.get('_ngcontent-serverapp-c302').click();
 
        cy.get('.cart-button').click();
-        // cy.contains("Войти").click()
-
-        // cy.get('input[type="tel"]').type('9373970242').should('have.value','+7 (937) 397-02-42')
-
+        
         
     })
 })
